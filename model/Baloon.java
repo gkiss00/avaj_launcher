@@ -36,8 +36,8 @@ public class Baloon extends Aircraft implements Flyable{
     public String toString(){
         String str = "";
         str += "Baloon";
-        str += this.name;
         str += "#";
+        str += this.name;
         str += "(";
         str += this.id;
         str += ")";

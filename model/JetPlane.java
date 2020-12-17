@@ -36,8 +36,8 @@ public class JetPlane extends Aircraft implements Flyable{
     public String toString(){
         String str = "";
         str += "JetPlane";
-        str += this.name;
         str += "#";
+        str += this.name;
         str += "(";
         str += this.id;
         str += ")";

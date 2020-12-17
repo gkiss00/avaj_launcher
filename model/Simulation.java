@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 import java.io.File;
 
-import exceptions.*;
-
 public class Simulation{
     static private int nb_turn = 0;
     static private Flyable[] flyables = new Flyable[0];
