@@ -9,17 +9,15 @@ public class Tower {
         }
         tmp[this.flyables.length] = flyable;
         this.flyables = tmp;
-        System.out.println("Tower says : "
-        + this.toString()
-        + " registred to weater tower.");
+        System.out.println("Tower says : " + this.toString() + " registred to weater tower.");
     }
 
     public void unRegister(Flyable flyable){
         int pos = 0;
         Flyable[] tmp = new Flyable[this.flyables.length - 1];
+        System.out.println(flyables.length + " " + tmp.length);
         for (int i = 0; i < this.flyables.length; ++i){
             if(this.flyables[i] != flyable){
-                System.out.println(pos);
                 tmp[pos] = this.flyables[i];
                 ++pos;
             } 

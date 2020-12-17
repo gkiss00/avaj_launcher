@@ -8,7 +8,6 @@ public class AircraftFactory{
         else if (type.compareTo("Baloon") == 0)
             return (new Baloon(name, new Coordinates(longitude, latitude, height)));
         else{
-            System.out.println("This type of aricraft doesn't exist");
             return (null);
         }
     }

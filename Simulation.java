@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.io.File;
+import java.io.PrintStream;
+import java.io.FileOutputStream;
 
 
 
@@ -71,6 +73,7 @@ public class Simulation{
                     createNewCraft(scan.nextLine());
                 ++nb_line;
             }
+            System.setOut(new PrintStream(new FileOutputStream(new File("simulation.txt"))));
             startSimulation();
             System.out.println("Fin de la simulation");
         }catch(Exception e){
