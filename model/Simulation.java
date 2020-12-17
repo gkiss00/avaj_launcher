@@ -1,6 +1,7 @@
 import java.util.Scanner;
-
 import java.io.File;
+
+
 
 public class Simulation{
     static private int nb_turn = 0;
@@ -24,6 +25,7 @@ public class Simulation{
         int lo = Integer.parseInt(args[2]);
         int la = Integer.parseInt(args[3]);
         int h = Integer.parseInt(args[4]);
+
         if (lo < 0 || la < 0 || h < 0 || h > 100)
             throw new BadValueException("Bad value input in text file, values must be positive");
         Flyable tmp = af.newAircraft(type, name, lo, la, h);

@@ -9,6 +9,7 @@ public class Helicopter extends Aircraft implements Flyable{
     public void updateConditions(){
         WeatherProvider wp = new WeatherProvider();
         String actualWheater = wp.getCurrentWeather(this.coordinates);
+        Coordinates previous = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLatitude(), this.coordinates.getHeight());
 
         if(actualWheater.compareTo("SUN") == 0){
             this.updateCoordinates(10, 0, 2);
@@ -23,13 +24,15 @@ public class Helicopter extends Aircraft implements Flyable{
             this.updateCoordinates(0, 0, -12);
             System.out.println(this + ": Saroumane fait tomber a neige");
         }
+        if (previous.getHeight() != 0 && this.coordinates.getHeight() == 0){
+            System.out.println(this.toString() + " is landing");
+            this.weatherTower.unRegister(this);
+        }
     }
     //@Override
     public void registerTower(WeatherTower weatherTower){
         this.weatherTower = weatherTower;
-        System.out.println("Tower says : "
-        + this.toString()
-        + " registred to weater tower.");
+        weatherTower.register(this);
     }
 
     @Override
