@@ -5,7 +5,7 @@ import java.io.File;
 public class Simulation{
     static private int nb_turn = 0;
     static private Flyable[] flyables = new Flyable[0];
-    static private final WeatherTower weaterTower = new WeatherTower();
+    static private final WeatherTower weatherTower = new WeatherTower();
 
     private static void addNewCraft(Flyable flyable){
         Flyable[] tmp = new Flyable[flyables.length + 1];
@@ -29,7 +29,7 @@ public class Simulation{
 
     private static void startSimulation(){
         for (int i = 0; i < flyables.length; ++i){
-            flyables[i].registerTower(weaterTower);
+            flyables[i].registerTower(weatherTower);
         }
         for (int i = 0; i < nb_turn; ++i){
             for(int j = 0; j < flyables.length; ++j){

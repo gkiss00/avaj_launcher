@@ -14,15 +14,13 @@ public class WeatherProvider{
         int latitude = coord.getLatitude();
         int longitude = coord.getLongitude();
         int height = coord.getHeight();
-        int r;
         int x;
 
         if (height > 75){
-            x = ((longitude + latitude) % 2) + 2
-        }
+            x = ((longitude + latitude) % 2) + 2;
         }else{
-            x = ((longitude + latitude) % 4)
+            x = ((longitude + latitude) % 4);
         }
-        return (weather[x]);
+        return (this.weather[x]);
     }
 }
