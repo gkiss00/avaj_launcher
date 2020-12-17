@@ -26,7 +26,7 @@ public abstract class Aircraft{
         return (str);
     }
     
-    protected int getCoordinates(){
+    protected Coordinates getCoordinates(){
         return (this.coordinates);
     }
 

@@ -1,32 +1,39 @@
 import java.util.Scanner;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
 
 import java.io.File;
 
 public class Simulation{
     static private int nb_turn = 0;
-    static private final List<Flyable> flyables = new ArrayList<Flyable>();
+    static private Flyable[] flyables = new Flyable[0];
     static private final WeatherTower weaterTower = new WeatherTower();
 
-    public static void createNewCraft(String line){
+    private static void addNewCraft(Flyable flyable){
+        Flyable[] tmp = new Flyable[flyables.length + 1];
+        for (int i = 0; i < flyables.length; ++i){
+            tmp[i] = flyables[i];
+        }
+        tmp[flyables.length] = flyable;
+        flyables = tmp;
+    }
+
+    private static void createNewCraft(String line){
         AircraftFactory af = new AircraftFactory();
         String args[] = line.split("\\s+");
 
-        flyables.add(af.newAircraft(args[0], args[1], Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4])));
+        Flyable tmp = af.newAircraft(args[0], args[1], Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]));
+        addNewCraft(tmp);
     }
 
-    public static void setNbTurn(String line){
+    private static void setNbTurn(String line){
         nb_turn = Integer.parseInt(line);
     }
 
-    public static void startSimulation(){
-        for (int i = 0; i < flyables.size(); ++i){
-            flyables.get(i).registerTower(weaterTower);
+    private static void startSimulation(){
+        for (int i = 0; i < flyables.length; ++i){
+            flyables[i].registerTower(weaterTower);
         }
         for (int i = 0; i < nb_turn; ++i){
-            for(int j = 0; j < flyables.size; ++j){
+            for(int j = 0; j < flyables.length; ++j){
                 
             }
         }

@@ -2,7 +2,7 @@ public class WeatherProvider{
     private WeatherProvider weatherProvider;
     private String[] weather;
 
-    private WeatherProvider(){
+    public WeatherProvider(){
 
     }
 
@@ -11,6 +11,6 @@ public class WeatherProvider{
     }
 
     public String getCurrentWeather(Coordinates coord){
-        
+        return("oui");
     }
 }

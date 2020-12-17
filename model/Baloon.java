@@ -4,17 +4,20 @@ public class Baloon extends Aircraft implements Flyable{
     public Baloon(String name, Coordinates coordinates){
         super(name, coordinates);
     }
+
     //@Override
     public void updateConditions(){
-        Weather actual = Weather.SUN;
-        if(actual ==  Weather.SUN){
-            this.upadteCoordinates(0, 10, 2);
-        }else if(actual ==  Weather.RAIN){
-            this.upadteCoordinates(0, 5, 0);
-        }else if(actual ==  Weather.FOG){
-            this.upadteCoordinates(0, 1, 0);
+        WeatherProvider wp = new WeatherProvider();
+        String actualWheater = wp.getCurrentWeather(this.coordinates);
+
+        if(actualWheater.compareTo("SUN") == 0){
+            this.updateCoordinates(0, 10, 2);
+        }else if(actualWheater.compareTo("RAIN") == 0){
+            this.updateCoordinates(0, 5, 0);
+        }else if(actualWheater.compareTo("FOG") == 0){
+            this.updateCoordinates(0, 1, 0);
         }else{
-            this.upadteCoordinates(0, 0, -7);
+            this.updateCoordinates(0, 0, -7);
         }
     }
     //@Override

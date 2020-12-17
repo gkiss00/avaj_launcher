@@ -4,17 +4,20 @@ public class Helicopter extends Aircraft implements Flyable{
     public Helicopter(String name, Coordinates coordinates){
         super(name, coordinates);
     }
+
     //@Override
     public void updateConditions(){
-        Weather actual = Weather.SUN;
-        if(actual ==  Weather.SUN){
-            this.upadteCoordinates(10, 0, 2);
-        }else if(actual ==  Weather.RAIN){
-            this.upadteCoordinates(5, 0, 0);
-        }else if(actual ==  Weather.FOG){
-            this.upadteCoordinates(1, 0, 0);
+        WeatherProvider wp = new WeatherProvider();
+        String actualWheater = wp.getCurrentWeather(this.coordinates);
+
+        if(actualWheater.compareTo("SUN") == 0){
+            this.updateCoordinates(10, 0, 2);
+        }else if(actualWheater.compareTo("RAIN") == 0){
+            this.updateCoordinates(5, 0, 0);
+        }else if(actualWheater.compareTo("FOG") == 0){
+            this.updateCoordinates(1, 0, 0);
         }else{
-            this.upadteCoordinates(0, 0, -12);
+            this.updateCoordinates(0, 0, -12);
         }
     }
     //@Override

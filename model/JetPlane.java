@@ -4,17 +4,20 @@ public class JetPlane extends Aircraft implements Flyable{
     public JetPlane(String name, Coordinates coordinates){
         super(name, coordinates);
     }
+
     //@Override
     public void updateConditions(){
-        Weather actual = Weather.SUN;
-        if(actual ==  Weather.SUN){
-            this.upadteCoordinates(2, 0, 4);
-        }else if(actual ==  Weather.RAIN){
-            this.upadteCoordinates(0, 0, 5);
-        }else if(actual ==  Weather.FOG){
-            this.upadteCoordinates(0, 0, 3);
+        WeatherProvider wp = new WeatherProvider();
+        String actualWheater = wp.getCurrentWeather(this.coordinates);
+
+        if(actualWheater.compareTo("SUN") == 0){
+            this.updateCoordinates(2, 0, 4);
+        }else if(actualWheater.compareTo("RAIN") == 0){
+            this.updateCoordinates(0, 0, 5);
+        }else if(actualWheater.compareTo("FOG") == 0){
+            this.updateCoordinates(0, 0, 3);
         }else{
-            this.upadteCoordinates(0, 0, -15);
+            this.updateCoordinates(0, 0, -15);
         }
     }
     //@Override
