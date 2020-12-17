@@ -1,8 +1,6 @@
-import java.util.Random;
-
 public class WeatherProvider{
     private WeatherProvider weatherProvider;
-    private String[] weather;
+    private final String[] weather = {"SUN", "RAIN", "FOG", "SNOW"};
 
     public WeatherProvider(){
 
@@ -13,19 +11,17 @@ public class WeatherProvider{
     }
 
     public String getCurrentWeather(Coordinates coord){
-        Random rand = new Random();
-        String weather[] = {"SUN", "RAIN", "FOG", "SNOW"};
         int latitude = coord.getLatitude();
         int longitude = coord.getLongitude();
         int height = coord.getHeight();
         int r;
         int x;
 
-        r = rand.nextInt(height);
-        if (r < 75){
-            x = rand.nextInt(3);
+        if (height > 75){
+            x = ((longitude + latitude) % 2) + 2
+        }
         }else{
-            x = rand.nextInt(4);
+            x = ((longitude + latitude) % 4)
         }
         return (weather[x]);
     }
