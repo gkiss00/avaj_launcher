@@ -1,5 +1,6 @@
 import model.*;
 import exception.*;
+import desc.*;
 
 import java.util.Scanner;
 import java.io.File;
@@ -64,6 +65,10 @@ public class Simulation{
             File f = new File(args[0]);
             if(!f.exists())
                 throw (new FileException("File \"" + args[0] + "\" doesn't exists"));
+            if (args[0].contains("md5")){
+                Descryptor d = new Descryptor();
+                f = d.decrpyt(f, args[0]);
+            }
             Scanner scan = new Scanner(f);
             int nb_line = 1;
 
