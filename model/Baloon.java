@@ -12,12 +12,16 @@ public class Baloon extends Aircraft implements Flyable{
 
         if(actualWheater.compareTo("SUN") == 0){
             this.updateCoordinates(0, 10, 2);
+            System.out.println(this + ": Le temps est bon, le ciel est bleau");
         }else if(actualWheater.compareTo("RAIN") == 0){
             this.updateCoordinates(0, 5, 0);
+            System.out.println(this + ": It's raining men, hallelujah, it's raining men, amen");
         }else if(actualWheater.compareTo("FOG") == 0){
             this.updateCoordinates(0, 1, 0);
+            System.out.println(this + ": On y voit rien dans ce brouillard");
         }else{
             this.updateCoordinates(0, 0, -7);
+            System.out.println(this + ": Saroumane fait tomber a neige");
         }
     }
     //@Override

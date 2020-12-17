@@ -19,7 +19,6 @@ public class Simulation{
     private static void createNewCraft(String line){
         AircraftFactory af = new AircraftFactory();
         String args[] = line.split("\\s+");
-
         Flyable tmp = af.newAircraft(args[0], args[1], Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]));
         addNewCraft(tmp);
     }
@@ -34,7 +33,7 @@ public class Simulation{
         }
         for (int i = 0; i < nb_turn; ++i){
             for(int j = 0; j < flyables.length; ++j){
-                
+                flyables[j].updateConditions();
             }
         }
     }
@@ -53,8 +52,9 @@ public class Simulation{
                 ++nb_line;
             }
             startSimulation();
+            System.out.println("Fin de la simulation");
         }catch(Exception e){
-
+            System.out.println(e.getMessage());
         }
     }
 }
