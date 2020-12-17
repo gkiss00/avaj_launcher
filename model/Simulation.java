@@ -16,14 +16,26 @@ public class Simulation{
         flyables = tmp;
     }
 
-    private static void createNewCraft(String line){
+    private static void createNewCraft(String line) throws Exception{
         AircraftFactory af = new AircraftFactory();
         String args[] = line.split("\\s+");
-        Flyable tmp = af.newAircraft(args[0], args[1], Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]));
-        addNewCraft(tmp);
+        String type = args[0];
+        String name = args[1];
+        int lo = Integer.parseInt(args[2]);
+        int la = Integer.parseInt(args[3]);
+        int h = Integer.parseInt(args[4]);
+        if (lo < 0 || la < 0 || h < 0 || h > 100)
+            throw new BadValueException("Bad value input in text file, values must be positive");
+        Flyable tmp = af.newAircraft(type, name, lo, la, h);
+        if (tmp != null)
+            addNewCraft(tmp);
+        else
+            throw (new AircraftException("There is no aircraft of this type : " + args[0]));
     }
 
-    private static void setNbTurn(String line){
+    private static void setNbTurn(String line) throws Exception{
+        if (Integer.parseInt(line) < 0)
+            throw new BadValueException("Bad value input in text file, nb of turns must be positive");
         nb_turn = Integer.parseInt(line);
     }
 

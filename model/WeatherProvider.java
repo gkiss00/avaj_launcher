@@ -26,7 +26,6 @@ public class WeatherProvider{
         }else{
             x = rand.nextInt(4);
         }
-        System.out.println(x);
         return (this.weather[x]);
     }
 }

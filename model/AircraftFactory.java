@@ -5,7 +5,11 @@ public class AircraftFactory{
             return (new Helicopter(name, new Coordinates(longitude, latitude, height)));
         else if (type.compareTo("JetPlane") == 0)
             return (new JetPlane(name, new Coordinates(longitude, latitude, height)));
-        else
+        else if (type.compareTo("Baloon") == 0)
             return (new Baloon(name, new Coordinates(longitude, latitude, height)));
+        else{
+            System.out.println("This type of aricraft doesn't exist");
+            return (null);
+        }
     }
 }
