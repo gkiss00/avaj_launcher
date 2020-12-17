@@ -1,3 +1,5 @@
+package model;
+
 public interface Flyable{
 
     public String toString();

@@ -1,9 +1,10 @@
+import model.*;
+import exception.*;
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.PrintStream;
 import java.io.FileOutputStream;
-
-
 
 public class Simulation{
     static private int nb_turn = 0;

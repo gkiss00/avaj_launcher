@@ -1,3 +1,4 @@
+package model;
 
 public class Tower {
     private Flyable[] flyables = new Flyable[0];

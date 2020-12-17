@@ -1,3 +1,5 @@
+package model;
+
 public class Helicopter extends Aircraft implements Flyable{
     private WeatherTower weatherTower;
     private boolean isFlying = true;

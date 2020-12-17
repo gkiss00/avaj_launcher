@@ -1,3 +1,5 @@
+package model;
+
 public abstract class Aircraft{
     protected long id = 1000000;
     protected String name;
