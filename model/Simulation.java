@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 import java.io.File;
 
+import exceptions.*;
+
 public class Simulation{
     static private int nb_turn = 0;
     static private Flyable[] flyables = new Flyable[0];
@@ -40,7 +42,13 @@ public class Simulation{
 
     public static void main(String []args){
         try {
+            if (args.length == 0)
+                throw (new NoArgsException("No agr get passed to the program"));
+            if (args.length > 1)
+                throw (new ToMuchArgsException("To much args get passed to the program"));
             File f = new File(args[0]);
+            if(!f.exists())
+                throw (new FileException("File \"" + args[0] + "\" doesn't exists"));
             Scanner scan = new Scanner(f);
             int nb_line = 1;
 
