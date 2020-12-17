@@ -2,6 +2,7 @@ public abstract class Aircraft{
     protected long id = 1000000;
     protected String name;
     protected Coordinates coordinates;
+    protected Coordinates lastCoordinates;
     private static long idCounter;
 
     protected Aircraft(String name, Coordinates coordinates){

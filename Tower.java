@@ -14,8 +14,8 @@ public class Tower {
 
     public void unRegister(Flyable flyable){
         int pos = 0;
+        flyable.unregisterTower();
         Flyable[] tmp = new Flyable[this.flyables.length - 1];
-        System.out.println(flyables.length + " " + tmp.length);
         for (int i = 0; i < this.flyables.length; ++i){
             if(this.flyables[i] != flyable){
                 tmp[pos] = this.flyables[i];

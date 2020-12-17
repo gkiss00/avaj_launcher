@@ -1,5 +1,6 @@
 public class JetPlane extends Aircraft implements Flyable{
     private WeatherTower weatherTower;
+    private boolean isFlying = true;
 
     public JetPlane(String name, Coordinates coordinates){
         super(name, coordinates);
@@ -7,6 +8,8 @@ public class JetPlane extends Aircraft implements Flyable{
 
     //@Override
     public void updateConditions(){
+        if (this.isFlying == false)
+            return;
         WeatherProvider wp = new WeatherProvider();
         String actualWheater = wp.getCurrentWeather(this.coordinates);
 
@@ -28,6 +31,14 @@ public class JetPlane extends Aircraft implements Flyable{
     public void registerTower(WeatherTower weatherTower){
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
+    }
+
+    public void unregisterTower(){
+        if (this.isFlying){
+            this.weatherTower = null;
+            this.isFlying = false;
+            this.lastCoordinates = this.coordinates;
+        }
     }
 
     @Override
