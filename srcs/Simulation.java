@@ -1,6 +1,6 @@
 import model.*;
 import exception.*;
-import desc.*;
+import md5.*;
 
 import java.util.Scanner;
 import java.io.File;
@@ -65,6 +65,9 @@ public class Simulation{
             File f = new File(args[0]);
             if(!f.exists())
                 throw (new FileException("File \"" + args[0] + "\" doesn't exists"));
+            //Uncomment to encrypt your file with MD5
+            Encryptor en = new Encryptor();
+            en.encrypt(f, args[0]);
             if (args[0].contains("md5")){
                 Descryptor d = new Descryptor();
                 f = d.decrpyt(f, args[0]);

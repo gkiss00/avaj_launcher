@@ -10,7 +10,7 @@ public class Tower {
         }
         tmp[this.flyables.length] = flyable;
         this.flyables = tmp;
-        System.out.println("Tower says : " + this.toString() + " registred to weater tower.");
+        System.out.println("Tower says : " + flyable.toString() + " registred to weater tower.");
     }
 
     public void unRegister(Flyable flyable){
