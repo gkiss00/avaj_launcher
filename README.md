@@ -1,3 +1,7 @@
 # avaj_launcher
 
-MD5 can't be decrypted, but I still did something for the bonus lol
+* An introduction project to Java
+
+## Goal
+
+* Make some classes, abstract classes, interfaces and make them play together to do a fly simulator.
